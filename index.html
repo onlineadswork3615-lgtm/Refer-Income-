@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Telegram Referral App</title>
+    <!-- Telegram Web App Script -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Header -->
+    <header class="header">
+        <div class="profile">
+            <div class="avatar"><i class="fas fa-user"></i></div>
+            <div class="user-info">
+                <h3 id="userName">Loading...</h3>
+                <span id="userStatus" class="status-badge active">Active</span>
+            </div>
+        </div>
+        <div class="settings"><i class="fas fa-cog"></i></div>
+    </header>
+
+    <!-- Balance Card -->
+    <section class="balance-card">
+        <p>Total Balance</p>
+        <h1 id="balanceAmount">৳0.00</h1>
+        <div class="action-buttons">
+            <button class="btn-primary" onclick="openModal()">Withdraw</button>
+        </div>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="referral-section">
+        <h3>Invite & Earn</h3>
+        <p class="desc">Share your link and earn ৳10 for every active friend.</p>
+        <div class="link-box">
+            <input type="text" id="refLink" value="https://t.me/YourBot?start=REF123" readonly>
+            <button onclick="copyLink()" class="copy-btn"><i class="fas fa-copy"></i></button>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <h4>12</h4>
+                <p>Invited</p>
+            </div>
+            <div class="stat-item">
+                <h4>8</h4>
+                <p>Eligible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity History -->
+    <section class="history-section">
+        <h3>Recent Activity</h3>
+        <div class="history-list" id="historyList">
+            <!-- Dynamic items will load here via JS -->
+        </div>
+    </section>
+
+    <!-- Modal for Withdrawal -->
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Withdraw Funds</h2>
+            <p>Minimum withdrawal is ৳50</p>
+            <input type="number" id="withdrawAmount" placeholder="Enter amount (৳)">
+            <button class="btn-primary" onclick="requestWithdraw()">Request</button>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+        <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-users"></i> Referrals</a>
+        <a href="#"><i class="fas fa-wallet"></i> Wallet</a>
+        <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>
